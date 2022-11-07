@@ -1,10 +1,8 @@
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import {Link,NavLink} from "react-router-dom";
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import {useDispatch, useSelector} from "react-redux";
 import {useState} from "react";
-import {Button} from "@mui/material";
 
 const EditProfileComponent = () => {
     const profile = useSelector(
@@ -30,9 +28,11 @@ const EditProfileComponent = () => {
                 </div>
             </div>
             <div className="row mt-1">
-                <img src={`/images/${profile.bannerPicture}`} className="img-fluid" width="100%" height="200px" />
+                <img src={`/images/${profile.bannerPicture}`} className="img-fluid" width="100%" height="200px"
+                alt=""/>
             </div>s
-            <img src={`/images/${profile.profilePicture}`} className="rounded-circle-images position-relative" height="100px" width="100px" style={{"bottom":"1rem"}}/>
+            <img src={`/images/${profile.profilePicture}`} className="rounded-circle-images position-relative"
+            alt="" height="100px" width="100px" style={{"bottom":"1rem"}}/>
             <form>
                 <div className="form-group">
                     <label for="name" className="gray">First Name</label>

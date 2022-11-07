@@ -1,6 +1,4 @@
 import React from "react";
-import {useDispatch} from "react-redux";
-import {deleteTuit} from "../tuits-reducer.js"
 
 const TuitsStats = ( post = {"replies" : 123, "retuits" : 432, "likes" : 2345, "liked" : true}) => {
 

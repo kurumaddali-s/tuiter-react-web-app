@@ -34,12 +34,14 @@ const Profile = () => {
                 </div>
             </div>
             <div className="row">
-                <img src={`/images/${profile.bannerPicture}`} className="img-fluid" width="100%" height="200px" />
+                <img src={`/images/${profile.bannerPicture}`} className="img-fluid"
+                alt="" width="100%" height="200px" />
             </div>
             <div className="row">
                 <div className="col-xxl-10 col-xl-10 col-lg-10 col-md-10 col-sm-10" >
                     <img src={`/images/${profile.profilePicture}`}
-                    className="rounded-circle position-relative" height="100px" width="100px" style={{"bottom":"1"}}>
+                    className="rounded-circle position-relative" height="100px"
+                    alt="" width="100px" style={{"bottom":"1"}}>
 
                     </img>
                 </div>
