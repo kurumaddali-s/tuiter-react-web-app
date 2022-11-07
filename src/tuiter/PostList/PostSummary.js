@@ -17,18 +17,18 @@ const PostSummaryItem = ({post}) => {
               <div className="row mt-3">
                       <img src={`/images/${post.cardImage}`} className="fluid" alt=""/>
                           <h5 className="card-title">{post.cardTitle}</h5>
-                          <p className="card-text">{post.cardBody}</p>
+                          <p className="card-text">{post.tuit}</p>
   
               </div>
               <div className="row mt-2">
                   <div className="col-3">
-                      <i className='fa fa-comment'>&nbsp;{post.comments}</i>
+                      <i className='fa fa-comment'>&nbsp;{post.replies}</i>
                   </div>
                   <div className="col-3">
-                      <i className='fa fa-share-alt'>&nbsp;{post.shares}</i>
+                      <i className='fa fa-share-alt'>&nbsp;{post.retuits}</i>
                   </div>
                   <div className="col-3">
-                      <i className='fa fa-heart'>&nbsp;{post.hearts}</i>
+                      <i className='fa fa-heart'>&nbsp;{post.likes}</i>
                   </div>
                   <div className="col-3">
                       <i className='fa fa-download'></i>
