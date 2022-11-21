@@ -15,7 +15,11 @@ import { configureStore }
   from '@reduxjs/toolkit';
 import {Provider} from "react-redux";
 const store = configureStore(
-  {reducer: {who: whoReducer, posts: postsReducer, tuits: tuitsReducer, profile: profileReducer}});
+  {reducer: {who: whoReducer, 
+    tuitsData: tuitsReducer,
+    posts: postsReducer, 
+    tuits: tuitsReducer, 
+    profile: profileReducer}});
 
 
 

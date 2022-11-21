@@ -1,26 +1,44 @@
 import React from "react";
+import {useDispatch} from "react-redux";
+import { updateTuitThunk } from "../../../services/tuits-thunks";
 
-const TuitsStats = ( post = {"replies" : 123, "retuits" : 432, "likes" : 2345, "liked" : true}) => {
+const TuitStats = (
+    {tuit}
+) => {
+    const dispatch = useDispatch()
+    return (
+    <div className="row mt-2">
+    <div className="col-3" style = {{color: "black"}}>
+        <i className='far fa-comment'></i>
+        <span>{tuit.replies}</span>
+    </div>
+    <div className="col-3">
+        <i className='fa fa-share-alt'></i>
+        &nbsp;{tuit.retuits}
+    </div>
+    <div className="col-3">
+      <><i onClick={() => {dispatch(updateTuitThunk({
+       ...tuit,
+       likes: tuit.likes + 1,
+       liked: true
+     }))
+     }} className="fa fa-heart" style = {tuit.liked ? {color:"red"}:{}}></i></>
+          &nbsp;{tuit.likes}
+    </div>
 
- return(
-
-
-        <div className="row mt-2">
-           <div className="col-3">
-               <i className='fa fa-comment'>&nbsp;{post.replies}</i>
-                </div>
-                <div className="col-3">
-                    <i className='fa fa-share-alt'>&nbsp;{post.retuits}</i>
-                </div>
-                <div className="col-3">
-
-                    {post.liked ? <><i className="fa fa-heart" style = {{color:"red"}}></i></> : <><i className="fa fa-heart"></i></>}
-                              &nbsp;{post.likes}
-                </div>
-                <div className="col-3">
-                    <i className='fa fa-download'></i>
-                </div>
-           </div>
- );
+    <div className="col-3">
+       <> <i onClick={() => {dispatch(updateTuitThunk({
+       ...tuit,
+       dislikes: tuit.dislikes + 1,
+       disliked: true
+     }))
+     }}
+        
+        className='fa fa-thumbs-down' style = {tuit.disliked ? {color:"red"}:{}}></i></>
+        &nbsp;{tuit.dislikes}
+    </div>
+    </div>
+    );
 };
-export default TuitsStats;
+
+export default TuitStats;

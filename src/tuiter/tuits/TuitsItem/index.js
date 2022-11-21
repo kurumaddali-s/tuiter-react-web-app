@@ -1,10 +1,13 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {deleteTuit} from "../tuits-reducer.js"
+import TuitsStats from "../TuitsStats";
+//import {deleteTuit} from "../tuits-reducer.js"
+import { deleteTuitThunk } from "../../../services/tuits-thunks";
+
 const TuitsItem = ({post}) => {
 const dispatch = useDispatch();
 const deleteTuitHandler = (id) => {
-  dispatch(deleteTuit(id));
+  dispatch(deleteTuitThunk(id));
 }
 
  return(
@@ -17,7 +20,7 @@ const deleteTuitHandler = (id) => {
                       <i className="fa fa-circle-check fa-inverse"></i><br/>
                   </div>
                   <div className="col-9">
-                      <span className="">{post.handle}&nbsp;.&nbsp;{post.timeframe}</span><br/>
+                      <span className="">{post.handle}&nbsp;.&nbsp;{post.time}</span><br/>
                       <span className="">{post.tuit}</span>
 
                   </div>
@@ -27,10 +30,10 @@ const deleteTuitHandler = (id) => {
                   </div>
               </div>
 
-          <div className="row mt-2">
+            {/* <div className="row mt-2">
               <div className="col-3">
                <i className='fa fa-comment'>&nbsp;{post.replies}</i>
-                </div>
+              </div>
                 <div className="col-3">
                     <i className='fa fa-share-alt'>&nbsp;{post.retuits}</i>
                 </div>
@@ -42,7 +45,12 @@ const deleteTuitHandler = (id) => {
                 <div className="col-3">
                     <i className='fa fa-download'></i>
                 </div>
-            </div>
+            </div> */}
+
+              {<div>
+                    <TuitsStats tuit = {post}/>
+            </div> }
+          
 
           </div>
  );

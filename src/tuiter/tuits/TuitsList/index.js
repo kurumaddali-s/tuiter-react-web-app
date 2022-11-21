@@ -1,18 +1,47 @@
-import React from "react";
-import {useSelector} from "react-redux";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 //import PostSummaryItem from "./PostSummary";
 import TuitsItem from "../TuitsItem";
+import {findTuitsThunk, deleteTuitThunk}
+  from "../../../services/tuits-thunks";
 
 const PostSummaryList = () => {
-const postsArray = useSelector(state => state.tuits)
+// eslint-disable-next-line no-unused-vars
+const {tuits, loading} = useSelector(state => state.tuitsData)
+//const postsArray = useSelector(state => state.tuits)
+const dispatch = useDispatch();
+ useEffect(() => {
+   dispatch(findTuitsThunk())
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [])
+
  return(
-   <ul className="list-group">
+   <div className="list-group">
      {
-       postsArray.map(post =>
-         <TuitsItem
-                    key={post._id} post={post}/> )
+       loading &&
+       <li className="list-group-item">
+         Loading...
+       </li>
      }
-   </ul>
+    
+     {
+        tuits.map(tuit =>
+          //  <li className="list-group-item"
+          //  key={tuit._id}>
+          //    {tuit.handle}
+          //    {tuit.tuit}
+          //    {tuit.likes}
+          //    {tuit.image}
+          //    {tuit.title}
+          //  </li>
+
+           {
+             return (<TuitsItem key={tuit._id} post = {tuit}/>);
+           }
+        )  
+     }
+
+   </div>
  );
 };
 export default PostSummaryList;
