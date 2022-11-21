@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 //import PostSummaryItem from "./PostSummary";
 import TuitsItem from "../TuitsItem";
-import {findTuitsThunk, deleteTuitThunk}
+import {findTuitsThunk}
   from "../../../services/tuits-thunks";
 
 const PostSummaryList = () => {
